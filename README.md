@@ -44,8 +44,8 @@ Things you may want to cover:
 |image|string|
 
 ### Association
-- has_many :groups
-- has_many :users
+- belongs_to :group
+- belongs_to :user
 
 ## usersテーブル
 
