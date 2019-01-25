@@ -44,7 +44,7 @@ Things you may want to cover:
 |image|string|
 
 ### Association
-- belongs_to :group
+- has_many :groups
 - has_many :users
 
 ## usersテーブル
@@ -57,7 +57,8 @@ Things you may want to cover:
 
 
 ### Association
-- has_many :groups
+- has_many :groups, through: members
+- has_many :members
 - has_many :messages
 
 ## groupsテーブル
@@ -68,5 +69,6 @@ Things you may want to cover:
 |message_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- has_many :users, through: members
+- has_many :members
 - has_many :messages
