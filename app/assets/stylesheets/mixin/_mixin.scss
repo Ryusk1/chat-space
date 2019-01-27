@@ -1,0 +1,14 @@
+@mixin side-bar-font {
+    font {
+    weight: bold;
+    size  : 16px;
+    }
+}
+
+@mixin side-bar-box($padding: 20px) {
+    height       : 100px;
+    width        : 100%;
+    box-sizing   : border-box;
+    padding-left : $padding;
+    padding-right: $padding;
+}
