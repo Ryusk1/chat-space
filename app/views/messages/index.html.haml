@@ -1,4 +1,6 @@
 .chat
+  .notification
+    %p チャットグループが作成されました。
   .side-bar
     .chat-user
       %h5 username
@@ -20,6 +22,10 @@
         %a.chat-group__link{href: "#"}
           %p.chat-group__name Group-name3
           %p.chat-group__message Group-message3 no message
-  .chat-header
-  .chat-body
-  .chat-footer
+  .chat-space
+    .chat-header
+      %p.chat-header__name Group-name
+      %p.chat-header__members Group-members: Chris yayen
+      %a.chat-header__edit{:href => "#"} Edit
+    .chat-body
+    .chat-footer
