@@ -1,6 +1,13 @@
 .chat {
   height: 100vh;
   color : $text-color;
+
+  .notification {
+    text-align: center;
+    background-color: $light-blue;
+    color: $text-color;
+  }
+
   .side-bar {
     background-color: #2f3e51;
     width           : 300px;
@@ -9,7 +16,9 @@
 
     .chat-user {
       background-color: #253141;
-      @include side-bar-box;
+      @include top-box;
+      height       : 100px;
+      width        : 100%;
 
       a, h5 {
         @include side-bar-font;
@@ -33,10 +42,13 @@
       box-sizing   : border-box;
       padding-left : 20px;
       padding-right: 20px;
+
       .chat-group__link {
         display:block;
         height: 100%;
         width: 100%;
+        text-decoration: none;
+
         .chat-group__name {
           padding-top: 20px;
           padding-bottom: 5px;
