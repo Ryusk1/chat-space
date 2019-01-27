@@ -1,2 +1,25 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+.chat
+  .side-bar
+    .chat-user
+      %h5 username
+      .chat-user__actions
+        %a.char-user__action{href: "#"}
+          %i.fa.fa-pencil-square-o
+        %a.char-user__action{href: "#"}
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name1
+          %p.chat-group__message Group-message1 no message
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name2
+          %p.chat-group__message Group-message2 no message
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name3
+          %p.chat-group__message Group-message3 no message
+  .chat-header
+  .chat-body
+  .chat-footer
