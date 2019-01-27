@@ -8,6 +8,13 @@
     color: $text-color;
   }
 
+  .border {
+    position: absolute;
+    right: 0;
+    border-bottom: 1px solid #eeeeee;
+    width: calc(100vw - 300px);
+  }
+
   .side-bar {
     background-color: #2f3e51;
     width           : 300px;
