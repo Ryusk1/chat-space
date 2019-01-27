@@ -5,9 +5,7 @@
     }
 }
 
-@mixin side-bar-box($padding: 20px) {
-    height       : 100px;
-    width        : 100%;
+@mixin top-box($padding: 20px) {
     box-sizing   : border-box;
     padding-left : $padding;
     padding-right: $padding;
