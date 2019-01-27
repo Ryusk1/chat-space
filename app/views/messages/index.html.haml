@@ -5,9 +5,9 @@
     .chat-user
       %h5 username
       .chat-user__actions
-        %a.char-user__action{href: "#"}
+        %a.chat-user__action{href: "#"}
           %i.fa.fa-pencil-square-o
-        %a.char-user__action{href: "#"}
+        %a.chat-user__action{href: "#"}
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
@@ -27,5 +27,19 @@
       %p.chat-header__name Group-name
       %p.chat-header__members Group-members: Chris yayen
       %a.chat-header__edit{:href => "#"} Edit
+    .border
     .chat-body
+      %ul
+        %li
+          %p.chat-body__user-name chris
+          %p.chat-body__date 2019/01/28/ 18:27:07
+          %p.chat-body__text hello
+        %li
+          %p.chat-body__user-name chris
+          %P.chat-body__date 2019/01/28/ 18:29:34
+          %p.chat-body__text how r u
+        %li
+          %p.chat-body__user-name chris
+          %p.chat-body__date 2019/01/28/ 18:38:25
+          %p.chat-body__text what's up
     .chat-footer
