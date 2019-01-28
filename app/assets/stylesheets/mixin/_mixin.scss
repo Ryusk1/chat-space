@@ -6,7 +6,6 @@
 }
 
 @mixin top-box($padding: 20px) {
-    box-sizing   : border-box;
     padding-left : $padding;
     padding-right: $padding;
 }
