@@ -1,0 +1,43 @@
+.chat-footer {
+  width           : 100%;
+  background-color: $light-gray;
+
+
+  .chat-footer__form {
+    @include top-box($padding: 40px);
+    padding-top              : 20px;
+    padding-bottom           : 20px;
+    position                 : relative;
+
+    .chat-footer__form__text-box {
+        height  : 50px;
+        width   : calc(100% - 15px - 100px);
+        float   : left;
+        position: relative;
+
+      .text {
+        padding-left: 10px;
+        height      : 100%;
+        width       : 100%;
+      }
+      label {
+        position: absolute;
+        right   : 10px;
+        top     : 15px;
+        color   : black;
+        #image {
+          display: none;
+        }
+      }
+    }
+
+    .submit {
+      height          : 50px;
+      width           : 100px;
+      margin-left     :15px;
+      background-color: $light-blue;
+      color           : white;
+      border          : none;
+    }
+  }
+}
