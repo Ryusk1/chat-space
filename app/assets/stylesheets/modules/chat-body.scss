@@ -1,6 +1,6 @@
 .chat-body {
   @include top-box($padding: 40px);
-  height                   : calc(100vh - 100px - 90px);
+  height                   : calc(100vh - 100px - 114px);
   padding-top              : 46px;
 
   .chat-body__user-name {
