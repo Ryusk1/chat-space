@@ -4,4 +4,24 @@
 @import "mixin/mixin";
 @import "modules/side-bar";
 @import "modules/chat-header";
-@import "modules/chat-body"
+@import "modules/chat-body";
+@import "modules/chat-footer";
+
+* {
+  box-sizing: border-box;
+}
+
+.notification {
+  text-align      : center;
+  background-color: $light-blue;
+  color           : $text-color;
+  box-sizing      : border-box;
+  width           : 100%;
+}
+
+.border {
+  position     : absolute;
+  right        : 0;
+  border-bottom: 1px solid #eeeeee;
+  width        : calc(100vw - 300px);
+}
