@@ -2,19 +2,6 @@
   height: 100vh;
   color : $text-color;
 
-  .notification {
-    text-align: center;
-    background-color: $light-blue;
-    color: $text-color;
-  }
-
-  .border {
-    position: absolute;
-    right: 0;
-    border-bottom: 1px solid #eeeeee;
-    width: calc(100vw - 300px);
-  }
-
   .side-bar {
     background-color: #2f3e51;
     width           : 300px;
@@ -26,13 +13,14 @@
       @include top-box;
       height       : 100px;
       width        : 100%;
+      box-sizing: border-box;
 
       a, h5 {
         @include side-bar-font;
         line-height: 60px;
         float      : left;
         margin     : 20px 5px;
-        color: $text-color;
+        color      : $text-color;
       }
 
       .chat-user__actions {
@@ -43,29 +31,31 @@
         }
       }
     }
+    .chat-groups {
+      height: calc(100% - 100px);
+      .chat-group {
+        width        : 100%;
+        box-sizing   : border-box;
+        padding-left : 20px;
+        padding-right: 20px;
 
-    .chat-group {
-      width        : 100%;
-      box-sizing   : border-box;
-      padding-left : 20px;
-      padding-right: 20px;
+        .chat-group__link {
+          display        :block;
+          height         : 100%;
+          width          : 100%;
+          text-decoration: none;
 
-      .chat-group__link {
-        display:block;
-        height: 100%;
-        width: 100%;
-        text-decoration: none;
-
-        .chat-group__name {
-          padding-top: 20px;
-          padding-bottom: 5px;
-          font-size: 15px;
-          color: $text-color;
-        }
-        .chat-group__message {
-          color: $text-color;
-          font-size: 11px;
-          padding-bottom: 40px;
+          .chat-group__name {
+            padding-top   : 20px;
+            padding-bottom: 5px;
+            font-size     : 15px;
+            color         : $text-color;
+          }
+          .chat-group__message {
+            color         : $text-color;
+            font-size     : 11px;
+            padding-bottom: 40px;
+          }
         }
       }
     }
