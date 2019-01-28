@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.notification {
+  text-align      : center;
+  background-color: $light-blue;
+  color           : $text-color;
+  box-sizing      : border-box;
+  width           : 100%;
+}
+
+.border {
+  position     : absolute;
+  right        : 0;
+  border-bottom: 1px solid #eeeeee;
+  width        : calc(100vw - 300px);
+}
