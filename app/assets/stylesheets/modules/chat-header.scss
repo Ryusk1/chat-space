@@ -1,0 +1,33 @@
+.chat-space{
+  @include top-box($padding: none);
+  width                    : calc(100vw - 300px);
+  float                    : right;
+  height                   : 100%;
+
+  .chat-header {
+    @include top-box($padding: 40px);
+    height       : 100px;
+    position     : relative;
+
+    .chat-header__name {
+      color         : #333333;
+      padding-top   : 35px;
+      padding-bottom: 15px;
+    }
+    .chat-header__members {
+      font-size: 12px;
+      color    : #999999;
+    }
+    .chat-header__edit {
+      @include top-box;
+      height         : 40px;
+      line-height    : 40px;
+      color          : $light-blue;
+      text-decoration: none;
+      position       : absolute;
+      right          : 40px;
+      top            : 28px;
+      border         : 1px solid $light-blue;
+    }
+  }
+}

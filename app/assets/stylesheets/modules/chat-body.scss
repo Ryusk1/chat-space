@@ -1,0 +1,25 @@
+.chat-body {
+  @include top-box($padding: 40px);
+  height                   : calc(100vh - 100px - 114px);
+  padding-top              : 46px;
+
+  .chat-body__user-name {
+    padding-bottom: 10px;
+    display       : inline-block;
+    font-weight   : bold;
+    font-size     : 16px;
+    color         : $light-gray;
+  }
+
+  .chat-body__date {
+    padding-left: 10px;
+    display     : inline;
+    font-size   : 12px;
+    color       : #999999;
+  }
+
+  .chat-body__text {
+    padding-bottom: 40px;
+    color         : $light-gray;
+  }
+}

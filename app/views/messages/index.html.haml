@@ -1,2 +1,53 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+.chat
+  .notification
+    %p チャットグループが作成されました。
+  .side-bar
+    .chat-user
+      %h5 username
+      .chat-user__actions
+        %a.chat-user__action{href: "#"}
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action{href: "#"}
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name1
+          %p.chat-group__message Group-message1 no message
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name2
+          %p.chat-group__message Group-message2 no message
+      %li.chat-group
+        %a.chat-group__link{href: "#"}
+          %p.chat-group__name Group-name3
+          %p.chat-group__message Group-message3 no message
+  .chat-space
+    .chat-header
+      %p.chat-header__name Group-name
+      %p.chat-header__members Group-members: Chris yayen
+      %a.chat-header__edit{:href => "#"} Edit
+    .border
+    .chat-body
+      %ul
+        %li
+          %p.chat-body__user-name chris
+          %p.chat-body__date 2019/01/28/ 18:27:07
+          %p.chat-body__text hello
+        %li
+          %p.chat-body__user-name chris
+          %P.chat-body__date 2019/01/28/ 18:29:34
+          %p.chat-body__text how r u
+        %li
+          %p.chat-body__user-name chris
+          %p.chat-body__date 2019/01/28/ 18:38:25
+          %p.chat-body__text what's up
+    .chat-footer
+      .chat-footer__form
+        %form{action: "/", method: "post"}
+          .chat-footer__form__text-box
+            %input.text{placeholder: "type a message"}
+            %label{for: "image", type: "file"}
+              %input#image{type: "file"}
+              %i.fa.fa-image
+          %button.submit Send
