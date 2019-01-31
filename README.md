@@ -38,8 +38,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 |body|text|
 |image|string|
 
@@ -65,8 +63,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|name|string|
 
 ### Association
 - has_many :users, through: members
