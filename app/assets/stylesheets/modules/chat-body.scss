@@ -2,6 +2,7 @@
   @include top-box($padding: 40px);
   height                   : calc(100vh - 100px - 90px);
   padding-top              : 46px;
+  overflow: scroll;
 
   .chat-body__user-name {
     padding-bottom: 10px;
@@ -21,5 +22,9 @@
   .chat-body__text {
     padding-bottom: 40px;
     color         : $light-gray;
+  }
+
+  .chat-body__pic {
+    padding-bottom: 40px;
   }
 }

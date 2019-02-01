@@ -3,22 +3,22 @@
 
   .chat-space
     .chat-header
-      %p.chat-header__name= "#{@group.name}"
-      %p.chat-header__members= "Group-members"
+      %p.chat-header__name= @group.name
+      %p.chat-header__members
+        = "Members:"
+        -@users.each do |user|
+          = user.name
       %a.chat-header__edit{ href: "/groups/#{@group.id}/edit", method: :get } Edit
     .border
     .chat-body
       %ul
-        %li
-          %p.chat-body__user-name= "#{current_user.name}"
-          %p.chat-body__date= "#"
-          %p.chat-body__text= "#"
+        = render @messages
     .chat-footer
       .chat-footer__form
-        %form{action: "/", method: "post"}
+        = form_for [@group, @message] do |f|
           .chat-footer__form__text-box
-            %input.text{placeholder: "type a message"}
-            %label{for: "image", type: "file"}
-              %input#image{type: "file"}
-              %i.fa.fa-image
-          %button.submit Send
+            = f.text_field :content, placeholder: "type a message", class: "text"
+            = f.label :image do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, id: "message_image"
+          = f.submit "send", class: "submit"

@@ -1,0 +1,5 @@
+%li
+  %p.chat-body__user-name= "#{current_user.name}"
+  %p.chat-body__date= "#{message.created_at.strftime("%Y/%m/%d %H:%M")}"
+  %p.chat-body__text= "#{message.content}"
+  = image_tag message.image.url, class: "chat-body__pic" if message.image.present?
