@@ -1,47 +1,18 @@
 .chat
-  / .notification
-  /   %p チャットグループが作成されました。
-  .side-bar
-    .chat-user
-      %h5 #{current_user.name}
-      .chat-user__actions
-        = link_to new_group_path do
-          = fa_icon 'pencil-square-o', class: 'icon'
-        = link_to edit_user_path(current_user) do
-          = fa_icon 'cog', class: 'icon'
-    %ul.chat-groups
-      %li.chat-group
-        %a.chat-group__link{href: "#"}
-          %p.chat-group__name Group-name1
-          %p.chat-group__message Group-message1 no message
-      %li.chat-group
-        %a.chat-group__link{href: "#"}
-          %p.chat-group__name Group-name2
-          %p.chat-group__message Group-message2 no message
-      %li.chat-group
-        %a.chat-group__link{href: "#"}
-          %p.chat-group__name Group-name3
-          %p.chat-group__message Group-message3 no message
+  =render 'layouts/side_bar'
+
   .chat-space
     .chat-header
-      %p.chat-header__name Group-name
-      %p.chat-header__members Group-members: Chris yayen
-      %a.chat-header__edit{:href => "#"} Edit
+      %p.chat-header__name= "#{@group.name}"
+      %p.chat-header__members= "Group-members"
+      %a.chat-header__edit{ href: "/groups/#{@group.id}/edit", method: :get } Edit
     .border
     .chat-body
       %ul
         %li
-          %p.chat-body__user-name chris
-          %p.chat-body__date 2019/01/28/ 18:27:07
-          %p.chat-body__text hello
-        %li
-          %p.chat-body__user-name chris
-          %P.chat-body__date 2019/01/28/ 18:29:34
-          %p.chat-body__text how r u
-        %li
-          %p.chat-body__user-name chris
-          %p.chat-body__date 2019/01/28/ 18:38:25
-          %p.chat-body__text what's up
+          %p.chat-body__user-name= "#{current_user.name}"
+          %p.chat-body__date= "#"
+          %p.chat-body__text= "#"
     .chat-footer
       .chat-footer__form
         %form{action: "/", method: "post"}
