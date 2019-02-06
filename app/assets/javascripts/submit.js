@@ -1,69 +1,75 @@
-$(function (){
+$(function ()
+{
+	function buildHTML(message)
+	{
+		var image =`
+					<li>
+					    <p class="chat-body__user-name">
+						  ${message.username}
+					    </p>
+					    <p class="chat-body__date">
+						  ${message.created_at}
+					    </p>
+					    <p class="chat-body__text">
+						  ${message.content}
+					    </p>
+					      <img src="${message.image.url}", class="chat-body__pic">
+					</li>
+				   `
 
-	function buildHTML(message){
-		var image = `
-	<li>
-	    <p class="chat-body__user-name">
-		  ${message.username}
-	    </p>
-	    <p class="chat-body__date">
-		  ${message.created_at}
-	    </p>
-	    <p class="chat-body__text">
-		  ${message.content}
-	    </p>
-          <img src="${message.image.url}", class="chat-body__pic">
-	</li>`
-
-		var html =`
-	<li>
-	    <p class="chat-body__user-name">
-		  ${message.username}
-	    </p>
-	    <p class="chat-body__date">
-		  ${message.created_at}
-	    </p>
-	    <p class="chat-body__text">
-		  ${message.content}
-	    </p>
-	</li>
-`
-		if (message.image.url) {
+		var html = `
+				    <li>
+						<p class="chat-body__user-name">
+						  ${message.username}
+					    </p>
+					    <p class="chat-body__date">
+						  ${message.created_at}
+					    </p>
+					    <p class="chat-body__text">
+						  ${message.content}
+					    </p>
+					</li>
+				   `
+		if (message.image.url){
 			return image;
 		} else {
 			return html;
 		};
 	}
 
-	function scroll() {
+	function scroll(){
 	$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
 	}
 
-	$(document).on('submit','#new_message', function(e){
+	$(document).on('submit','#new_message', function(e)
+	{
 		e.preventDefault();
 		var formData = new FormData(this);
 		var url = window.location.href;
-		$.ajax({
-			type: 'POST',
-		    url: url,
-		    data: formData,
-		    dataType: 'json',
-		    processData: false,
-      		contentType: false,
+
+		$.ajax
+		({
+			type       : 'POST',
+			url        : url,
+			data       : formData,
+			dataType   : 'json',
+			processData: false,
+			contentType: false,
 		})
 
-		.done(function(data){
+		.done(function(data)
+		{
 			var html = buildHTML(data);
 			$('.chat-content').append(html);
-			$('#message_content').val('');
-			$('#message_image').val('');
 			$('.submit').prop('disabled', false);
+			document.getElementById('new_message').reset();
 			scroll();
-  		})
+		})
 
-		.fail(function(){
-	      alert('error');
-	      $('.submit').prop('disabled', false);
+		.fail(function()
+		{
+	        alert('error');
+	        $('.submit').prop('disabled', false);
     	})
 	});
 });
