@@ -1,35 +1,73 @@
 $(function (){
 
-	function builtHtml(message){
-		var html =`%li
-					  %p.chat-body__user-name= "${ current_user.name }"
-					  %p.chat-body__date= "${ message.created_at.strftime("%Y/%m/%d %H:%M") }"
-					  %p.chat-body__text= "${ message.content }"
-					  = image_tag ${ message.image.url }, class: "chat-body__pic" if message.image.present?
-				  `
-		return html;
+	function buildHTML(message){
+		var image = `
+	<li>
+	    <p class="chat-body__user-name">
+		  ${message.username}
+	    </p>
+	    <p class="chat-body__date">
+		  ${message.created_at}
+	    </p>
+	    <p class="chat-body__text">
+		  ${message.content}
+	    </p>
+          <img src="${message.image.url}", class="chat-body__pic">
+	</li>`
+
+		var html =`
+	<li>
+	    <p class="chat-body__user-name">
+		  ${message.username}
+	    </p>
+	    <p class="chat-body__date">
+		  ${message.created_at}
+	    </p>
+	    <p class="chat-body__text">
+		  ${message.content}
+	    </p>
+	</li>
+`
+		if (message.image.url) {
+			console.log('wimage');
+			return image;
+		} else {
+			console.log('woimage');
+			return html;
+		};
 	}
 
-	$('#new_message').on('submit', function(e){
-			e.preventDefault();
+	function scroll() {
+	$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
+	}
+
+	$(document).on('submit','#new_message', function(e){
+		console.log('成功');
+		e.preventDefault();
 		var formData = new FormData(this);
-		var href = window.location.href;
+		var url = window.location.href;
 		$.ajax({
 			type: 'POST',
-		    url: href,
+		    url: url,
 		    data: formData,
 		    dataType: 'json',
 		    processData: false,
-      		contentType: false
+      		contentType: false,
 		})
 
 		.done(function(data){
+			console.log('seikou');
 			var html = buildHTML(data);
-			$('.chat_body').append(html);
+			$('.chat-content').append(html);
+			$('#message_content').val('');
+			$('#message_image').val('');
+			$('.submit').prop('disabled', false);
+			scroll();
   		})
 
 		.fail(function(){
 	      alert('error');
+	      $('.submit').prop('disabled', false);
     	})
 	});
 });
