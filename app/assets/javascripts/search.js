@@ -33,7 +33,6 @@ $(function() {
 
 	$(document).on('input', '#user-search-field',  function() {
 		$("#user-search-result").empty();
-		console.log("出来たぞおお")
 		var input = $('#user-search-field').val();
 		$.ajax({
 					type    : 'GET',
@@ -44,7 +43,6 @@ $(function() {
 
 		.done(function (users) {
 			if (input != preWord && input.length !== 0) {
-				console.log('if');
 				users.forEach(function(user){
 					createHtml(user);
 				});
