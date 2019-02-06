@@ -29,10 +29,8 @@ $(function (){
 	</li>
 `
 		if (message.image.url) {
-			console.log('wimage');
 			return image;
 		} else {
-			console.log('woimage');
 			return html;
 		};
 	}
@@ -42,7 +40,6 @@ $(function (){
 	}
 
 	$(document).on('submit','#new_message', function(e){
-		console.log('成功');
 		e.preventDefault();
 		var formData = new FormData(this);
 		var url = window.location.href;
@@ -56,7 +53,6 @@ $(function (){
 		})
 
 		.done(function(data){
-			console.log('seikou');
 			var html = buildHTML(data);
 			$('.chat-content').append(html);
 			$('#message_content').val('');
