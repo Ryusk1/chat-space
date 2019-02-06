@@ -36,7 +36,7 @@ $(function (){
 	}
 
 	function scroll(){
-	$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
+		$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
 	}
 
 	$(document).on('submit','#new_message', function(e){
