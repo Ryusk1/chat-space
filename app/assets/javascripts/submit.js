@@ -1,7 +1,5 @@
-$(function ()
-{
-	function buildHTML(message)
-	{
+$(function (){
+	function buildHTML(message){
 		var image =`
 					<li>
 					    <p class="chat-body__user-name">
@@ -41,14 +39,12 @@ $(function ()
 	$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
 	}
 
-	$(document).on('submit','#new_message', function(e)
-	{
+	$(document).on('submit','#new_message', function(e){
 		e.preventDefault();
 		var formData = new FormData(this);
 		var url = window.location.href;
 
-		$.ajax
-		({
+		$.ajax({
 			type       : 'POST',
 			url        : url,
 			data       : formData,
@@ -57,8 +53,7 @@ $(function ()
 			contentType: false,
 		})
 
-		.done(function(data)
-		{
+		.done(function(data){
 			var html = buildHTML(data);
 			$('.chat-content').append(html);
 			$('.submit').prop('disabled', false);
@@ -66,8 +61,7 @@ $(function ()
 			scroll();
 		})
 
-		.fail(function()
-		{
+		.fail(function(){
 	        alert('error');
 	        $('.submit').prop('disabled', false);
     	})
