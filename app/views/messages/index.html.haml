@@ -11,7 +11,7 @@
       %a.chat-header__edit{ href: "/groups/#{@group.id}/edit", method: :get } Edit
     .border
     .chat-body
-      %ul
+      %ul.chat-content
         = render @messages
     .chat-footer
       .chat-footer__form
