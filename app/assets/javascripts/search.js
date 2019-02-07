@@ -1,6 +1,6 @@
 $(function() {
 	var preWord;
-	function createHtml(user) {
+	function searchUsersHtml(user) {
 		var html = `
 					<div class="chat-group-user clearfix">
 			  		<p class="chat-group-user__name">${user.name}</p>
@@ -43,7 +43,7 @@ $(function() {
 		.done(function (users) {
 			if (input != preWord && input.length !== 0) {
 				users.forEach(function(user){
-					createHtml(user);
+					searchUsersHtml(user);
 				});
 			}
 			if (users.length === 0) {
