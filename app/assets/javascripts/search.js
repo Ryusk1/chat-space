@@ -1,6 +1,5 @@
 $(function() {
 	var preWord;
-
 	function createHtml(user) {
 		var html = `
 					<div class="chat-group-user clearfix">
