@@ -55,13 +55,17 @@ $(function (){
 			dataType: 'json'
 		})
 
-		.always(function(data){
+		.done(function(data){
 			$.each(data, function(i, data){
 				var html = buildHtml(data);
 				$('.chat-content').append(html);
 				scroll();
 			});
 		})
+
+		.fail(function() {
+			alert('エラーです');
+		});
 	}
 
 	$(document).on('submit','#new_message', function(e){
