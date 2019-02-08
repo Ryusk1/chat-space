@@ -56,7 +56,7 @@ $(function (){
 		})
 
 		.done(function(data){
-			$.each(data, function(i, data){
+			$.each(data, function(data){
 				var html = buildHtml(data);
 				$('.chat-content').append(html);
 				scroll();
@@ -102,20 +102,3 @@ $(function (){
 		});
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

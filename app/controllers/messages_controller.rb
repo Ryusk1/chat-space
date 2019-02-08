@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
-    @users = @group.users
     @messages = @group.messages.includes(:user)
     @message = Message.new
     respond_to do |format|
