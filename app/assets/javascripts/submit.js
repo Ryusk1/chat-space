@@ -1,9 +1,9 @@
 $(function (){
-	function buildHTML(message){
+	function buildHtml(message){
 		var image =`
-					<li>
+					<li class="messages" data-id=${message.id}>
 					    <p class="chat-body__user-name">
-						  ${message.username}
+						  ${message.user_name}
 					    </p>
 					    <p class="chat-body__date">
 						  ${message.created_at}
@@ -16,9 +16,9 @@ $(function (){
 				   `
 
 		var html = `
-				    <li>
+				    <li class="messages" data-id=${message.id}>
 						<p class="chat-body__user-name">
-						  ${message.username}
+						  ${message.user_name}
 					    </p>
 					    <p class="chat-body__date">
 						  ${message.created_at}
@@ -39,6 +39,35 @@ $(function (){
 		$('.chat-body').animate({scrollTop: $('.chat-content')[0].scrollHeight});
 	}
 
+	function update(){
+		if($('.messages')[0]){
+			var message_id = $('.messages:last').data('id');
+		} else {
+			var message_id = 0
+		}
+
+		$.ajax({
+			method :'GET',
+			url :window.location.href,
+			data :{
+				message: { id: message_id }
+			},
+			dataType: 'json'
+		})
+
+		.done(function(data){
+			$.each(data, function(data){
+				var html = buildHtml(data);
+				$('.chat-content').append(html);
+				scroll();
+			});
+		})
+
+		.fail(function() {
+			alert('エラーです');
+		});
+	}
+
 	$(document).on('submit','#new_message', function(e){
 		e.preventDefault();
 		var formData = new FormData(this);
@@ -54,7 +83,7 @@ $(function (){
 		})
 
 		.done(function(data){
-			var html = buildHTML(data);
+			var html = buildHtml(data);
 			$('.chat-content').append(html);
 			$('.submit').prop('disabled', false);
 			document.getElementById('new_message').reset();
@@ -66,4 +95,10 @@ $(function (){
 	        $('.submit').prop('disabled', false);
     	})
 	});
+
+	if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+		$(function() {
+			setInterval(update, 5000);
+		});
+	}
 });
