@@ -3,7 +3,7 @@ $(function (){
 		var image =`
 					<li class="messages" data-id=${message.id}>
 					    <p class="chat-body__user-name">
-						  ${message.username}
+						  ${message.user_name}
 					    </p>
 					    <p class="chat-body__date">
 						  ${message.created_at}
@@ -18,7 +18,7 @@ $(function (){
 		var html = `
 				    <li class="messages" data-id=${message.id}>
 						<p class="chat-body__user-name">
-						  ${message.username}
+						  ${message.user_name}
 					    </p>
 					    <p class="chat-body__date">
 						  ${message.created_at}
