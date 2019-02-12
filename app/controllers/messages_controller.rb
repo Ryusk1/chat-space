@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
       format.json {@new_message = @messages.where('id > ?', params[:message][:id])}
       format.html
     end
+    @users = @group.users
   end
 
   def create
