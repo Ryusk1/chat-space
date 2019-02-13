@@ -56,6 +56,7 @@ $(function (){
 		})
 
 		.done(function(data){
+			conosole.log("あああああああ");
 			$.each(data, function(data){
 				var html = buildHtml(data);
 				$('.chat-content').append(html);
